@@ -40,7 +40,7 @@ export default function Home() {
             <div class="duck-mascot">🐥📖</div>
             <div class="banner-text">
                 <h2>Ready for an Adventure?</h2>
-                <p>Pick your favorite story and let's start reading together!</p>
+                <p>Pick your favorite story and let&#39;s start reading together!</p>
             </div>
             <button class="start-reading-btn">START READING</button>
         </div>
@@ -68,7 +68,7 @@ export default function Home() {
                 <div class="book-card" onclick="openStory('superhero')">
                     <div class="book-cover superhero-cover">
                         <div class="book-illustration">🦸‍♂️</div>
-                        <div class="book-title">The Superhero's Day</div>
+                        <div class="book-title">The Superhero&#39;s Day</div>
                     </div>
                     <button class="book-read-btn">READ NOW</button>
                 </div>
@@ -189,7 +189,7 @@ export default function Home() {
         <div class="footer-content">
             <div class="footer-section">
                 <h3>For Parents</h3>
-                <p>GooGooReads is designed with your child's safety and learning in mind. All content is age-appropriate and educational.</p>
+                <p>GooGooReads is designed with your child&#39;s safety and learning in mind. All content is age-appropriate and educational.</p>
                 <ul>
                     <li><a href="#">Safety & Privacy</a></li>
                     <li><a href="#">Learning Benefits</a></li>
@@ -198,7 +198,7 @@ export default function Home() {
             </div>
             <div class="footer-section">
                 <h3>Contact Us</h3>
-                <p>Have questions? We'd love to hear from you!</p>
+                <p>Have questions? We&#39;s love to hear from you!</p>
                 <ul>
                     <li><a href="mailto:hello@googooreads.com">hello@googooreads.com</a></li>
                     <li><a href="tel:+1234567890">📞 (123) 456-7890</a></li>
