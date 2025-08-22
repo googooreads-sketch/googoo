@@ -186,10 +186,10 @@ export default function SignIn() {
                         <div class="form-error" id="passwordError">Password must be at least 8 characters long</div></>)}
                     </div>
                     
-                    <button type="submit" class="btn-primary">Sign Up & Start Reading! 🚀</button>
+                    <button type="submit" class="btn-primary">Sign In & Start Reading! 🚀</button>
                 </form>
                 
-                <button class="google-btn" onClick={handleLogin}><GoogleOutlined style={{ fontSize: '26px', color: '#08c' }}/> Sign Up with Google</button>
+                <button class="google-btn" onClick={handleLogin}><GoogleOutlined style={{ fontSize: '26px', color: '#08c' }}/> Sign In with Google</button>
                 
                 <div class="auth-links">
                     <p>Create an account? <span onClick={() => handleSignUp()} class="auth-link" >Sign Up</span></p>
