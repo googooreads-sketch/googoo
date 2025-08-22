@@ -1,6 +1,14 @@
 import "@/styles/Home.module.css";
+import { Button } from 'antd';
+import { useRouter } from "next/router";
+
 
 export default function Home() {
+    const router = useRouter();
+
+    const handleSignUp = () => {
+     router.push('/signup');
+    }
   return (
     <>
    
@@ -16,6 +24,7 @@ export default function Home() {
                 <li class="nav-item"><a href="#games">Games</a></li>
                 <li class="nav-item"><a href="#profile">Profile</a></li>
                 <li class="nav-item"><a href="#contact">Contact</a></li>
+                <li class="nav-item"><Button type="primary" onClick={()=> handleSignUp()}>Get Started</Button></li>
             </ul>
         </nav>
     </header>
