@@ -237,9 +237,9 @@ export default function SignUp() {
                             <button type="button" class="password-toggle" onClick={() => setPasswordHide(preState => !preState)}>👁️</button>
                         </div>
                         <div class="password-strength" id="passwordStrength">
-                            <span>Password strength: <span style={{background:`${strength.label}`}}>{strength.label}</span> </span>
+                            <span>Password strength: <span style={{color:`${strength.color}`}}>{strength.label}</span> </span>
                               <div class="strength-bar">
-                                <div class="strength-fill" style={{background:`${strength.label}`, width:`${strength.per}`}} id="strengthFill"></div>
+                                <div class="strength-fill" style={{background:`${strength.color}`, width:`${strength.per}`}} id="strengthFill"></div>
                             </div>
                             
                             
