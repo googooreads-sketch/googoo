@@ -121,12 +121,15 @@ export default function SignIn() {
     e.preventDefault();
     if(!email){
         openNotificationWithIcon('error','Email is required.')
+        return ;
     }
     try {
       await sendPasswordResetEmail(auth, email, {
   url: 'https://www.googooreads.com/signin',
   handleCodeInApp: false,
 });
+openNotificationWithIcon('success', 'Password Email link is sent!');
+
       
     } catch (err) {
         openNotificationWithIcon('error');
@@ -160,7 +163,7 @@ export default function SignIn() {
        
     <header class="header">
         <nav class="nav-container">
-            <a href="#" class="logo" onclick="showPage('signup')">GooGooReads</a>
+            <a href="#" class="logo" onClick={() => router.push('/')}>GooGooReads</a>
             <button class="logout-btn" id="logoutBtn" onclick="logout()">Logout 👋</button>
         </nav>
     </header>
@@ -213,7 +216,7 @@ export default function SignIn() {
                     {error.password &&(<>
                         <div class="form-error" id="passwordError">Password must be at least 8 characters long</div></>)}
                     </div>
-                    <div class="form-label"style={{float:'right'}}  onClick={handleReset}>Forgot Password ?</div>
+                    <div class="form-label"style={{float:'right',cursor:'pointer'}}  onClick={handleReset}>Forgot Password ?</div>
                     
                     <button type="submit" class="btn-primary">Sign In & Start Reading! 🚀</button>
                 </form>
@@ -226,7 +229,7 @@ export default function SignIn() {
 /> Sign In with Google</button>
                 
                 <div class="auth-links">
-                    <p>Create an account? <span onClick={() => handleSignUp()} class="auth-link" >Sign Up</span></p>
+                    <p>Create an account? <span style={{cursor:'pointer'}} onClick={() => handleSignUp()} class="auth-link" >Sign Up</span></p>
                 </div>
             </div>
         </div>

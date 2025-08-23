@@ -16,7 +16,7 @@ export default function Home() {
 
     <header class="header">
         <nav class="nav-container">
-            <a href="#" class="logo">GooGooReads</a>
+             <a href="#" class="logo" onClick={() => router.push('/')}>GooGooReads</a>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#home">Home</a></li>
                 <li class="nav-item"><a href="#story">Stories</a></li>

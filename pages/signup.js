@@ -156,7 +156,7 @@ export default function SignUp() {
        
     <header class="header">
         <nav class="nav-container">
-            <a href="#" class="logo" onclick="showPage('signup')">GooGooReads</a>
+            <a href="#" class="logo" onClick={() => router.push('/')}>GooGooReads</a>
             <button class="logout-btn" id="logoutBtn" onclick="logout()">Logout 👋</button>
         </nav>
     </header>
@@ -259,7 +259,7 @@ export default function SignUp() {
                 /> Sign Up with Google</button>
                 
                 <div class="auth-links">
-                    <p>Already have an account? <span onClick={() => handleSignIn()} class="auth-link" >Log In</span></p>
+                    <p>Already have an account? <span style={{cursor:'pointer'}} onClick={() => handleSignIn()} class="auth-link" >Log In</span></p>
                 </div>
             </div>
         </div>
