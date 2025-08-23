@@ -19,7 +19,8 @@ export default function SignUp() {
   const [error, setError] = useState({
     name:false,
     email:false,
-    password:false
+    password:false,
+    Phone_Number:false
   });
   const [user, setUser] = useState(null);
     const [message, setMessage] = useState('');
@@ -67,6 +68,7 @@ export default function SignUp() {
       // 🔄 Update Firebase user profile with name
       await updateProfile(user, {
         displayName: name,
+        phone:phone
         // Firebase Auth does not directly store phone here; you'd store it elsewhere if needed (e.g., Firestore)
       });
       await sendEmailVerification(user);
@@ -137,6 +139,16 @@ export default function SignUp() {
      setError({...error,[name]:false})
    }
   }
+
+  const handlePhoneChange = (e) => {
+        const value = e.target.value;
+    setPhone(value);
+
+    // Basic US phone number regex: 10 digits only
+    const isValid = /^\d{10}$/.test(value.replace(/\D/g, '')); // Remove non-digits
+    setError({...error,Phone_Number: isValid ? false:true})
+
+  }
  
   return (
     <div>
@@ -175,6 +187,21 @@ export default function SignUp() {
         />
         {error.name &&(
                         <div class="form-error" id="nameError">Please enter your full name</div>)}
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="fullName">Phone Number</label>
+                         <input
+          type="number"
+          placeholder="Phone Number"
+          required
+          name='Phone_Number'
+           className='form-input'
+          value={phone}
+          onChange={(e) => handlePhoneChange(e)}
+          onBlur={(e) => handleBlur(e)}
+        />
+        {error.Phone_Number &&(
+                        <div class="form-error" id="nameError">Please enter your Phone Number</div>)}
                     </div>
                     
                     <div class="form-group">

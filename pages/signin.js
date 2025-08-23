@@ -1,6 +1,6 @@
 import { useState,useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword,sendPasswordResetEmail } from 'firebase/auth';
 import { signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 import { auth, provider } from "../lib/firebase";
 import { getPasswordStrength } from '@/utils/passwordStrength';
@@ -18,11 +18,10 @@ export default function SignIn() {
     const [user, setUser] = useState(null);
   const router = useRouter();
      const [api, contextHolder] = notification.useNotification();
-    const openNotificationWithIcon = type => {
+    const openNotificationWithIcon = (type,message='') => {
       api[type]({
         message: 'Error',
-        description:
-          'Something went wrong. Please try again later.',
+        description: `${message ? message : 'Something went wrong. Please try again later.' }`,
       });
     };
 
@@ -118,6 +117,24 @@ export default function SignIn() {
         setStrength(getPasswordStrength(newPassword));
       };
 
+       const handleReset = async (e) => {
+    e.preventDefault();
+    if(!email){
+        openNotificationWithIcon('error','Email is required.')
+    }
+    try {
+      await sendPasswordResetEmail(auth, email, {
+  url: 'https://www.googooreads.com/signin',
+  handleCodeInApp: false,
+});
+      
+    } catch (err) {
+        openNotificationWithIcon('error');
+      setError(err.message);
+      setMessage('');
+    }
+  };
+
       
 
      const handleBlur = (e) => {
@@ -196,6 +213,7 @@ export default function SignIn() {
                     {error.password &&(<>
                         <div class="form-error" id="passwordError">Password must be at least 8 characters long</div></>)}
                     </div>
+                    <div class="form-label"style={{float:'right'}}  onClick={handleReset}>Forgot Password ?</div>
                     
                     <button type="submit" class="btn-primary">Sign In & Start Reading! 🚀</button>
                 </form>
