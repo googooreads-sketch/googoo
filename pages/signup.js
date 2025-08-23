@@ -6,7 +6,10 @@ import { signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 import { auth, provider } from "../lib/firebase";
 import { getPasswordStrength } from '@/utils/passwordStrength';
 import Image from 'next/image';
-import { notification } from 'antd';
+import { notification,
+    Tooltip
+ } from 'antd';
+ import { InfoCircleOutlined  } from '@ant-design/icons';
 
 
 
@@ -160,9 +163,9 @@ export default function SignUp() {
             <button class="logout-btn" id="logoutBtn" onclick="logout()">Logout 👋</button>
         </nav>
     </header>
-
-   
-
+      <Tooltip title="prompt text">
+    <span>Tooltip will show on mouse enter.</span>
+  </Tooltip>
 
     
     <div class="page active" id="signupPage">
@@ -222,7 +225,15 @@ export default function SignUp() {
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label" for="signupPassword">Create Password</label>
+                        <label class="form-label" for="signupPassword">Create Password
+                            <Tooltip title="Minimum length → at least 8 characters
+Uppercase letter → at least 1 (A–Z)
+Lowercase letter → at least 1 (a–z)
+Number → at least 1 (0–9)
+Special character → at least 1 (!@#$%^&*() etc.)">
+                             <InfoCircleOutlined style={{width:'25px',height:'25px',marginLeft:'10px'}}/>
+                             </Tooltip>
+                             </label>
                         <div class="password-container">
                       <input
           type={passwordHide ? "password": "text"}
