@@ -1,10 +1,13 @@
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useMemo } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 import { createUserWithEmailAndPassword, updateProfile,sendEmailVerification } from 'firebase/auth';
 import { signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 import { auth, provider } from "../lib/firebase";
 import { getPasswordStrength } from '@/utils/passwordStrength';
-import { GoogleOutlined  } from '@ant-design/icons';
+import Image from 'next/image';
+import { notification } from 'antd';
+
 
 
 export default function SignUp() {
@@ -20,10 +23,22 @@ export default function SignUp() {
   });
   const [user, setUser] = useState(null);
     const [message, setMessage] = useState('');
-    const [strength, setStrength] = useState({ label: '', color: '' });
+    const [strength, setStrength] = useState({ label: '', color: '',per:'' });
   const router = useRouter();
+  
+   const [api, contextHolder] = notification.useNotification();
+  const openNotificationWithIcon = type => {
+    api[type]({
+      message: 'Error',
+      description:
+        'Something went wrong. Please try again later.',
+    });
+  };
+
+
 
     useEffect(() => {
+      
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) setUser(user);
       else setUser(null);
@@ -72,6 +87,7 @@ export default function SignUp() {
       router.push('/dashboard');
     } catch (err) {
       console.error(err.message);
+      openNotificationWithIcon('error');
       setError(err.message);
     }
   };
@@ -97,6 +113,7 @@ export default function SignUp() {
       router.push('/dashboard')
     } catch (error) {
       console.error("Google Sign-In Error:", error);
+      openNotificationWithIcon('error');
     }
   };
 
@@ -123,7 +140,7 @@ export default function SignUp() {
  
   return (
     <div>
-
+{contextHolder}
        
     <header class="header">
         <nav class="nav-container">
@@ -131,6 +148,8 @@ export default function SignUp() {
             <button class="logout-btn" id="logoutBtn" onclick="logout()">Logout 👋</button>
         </nav>
     </header>
+
+   
 
 
     
@@ -140,7 +159,7 @@ export default function SignUp() {
                 <div class="auth-mascot">🐻📚</div>
                 <h1 class="auth-title">Join the Adventure!</h1>
                 <p class="auth-subtitle">Create your account and start exploring magical stories, fun games, and amazing badges!</p>
-                
+                   
                 <form class="auth-form" id="signupForm" onSubmit={handleSignUp}>
                     <div class="form-group">
                         <label class="form-label" for="fullName">Full Name</label>
@@ -191,7 +210,10 @@ export default function SignUp() {
                             <button type="button" class="password-toggle" onClick={() => setPasswordHide(preState => !preState)}>👁️</button>
                         </div>
                         <div class="password-strength" id="passwordStrength">
-                            <span>Password strength: {strength.label} </span>
+                            <span>Password strength: <span style={{background:`${strength.label}`}}>{strength.label}</span> </span>
+                              <div class="strength-bar">
+                                <div class="strength-fill" style={{background:`${strength.label}`, width:`${strength.per}`}} id="strengthFill"></div>
+                            </div>
                             
                             
                         </div>
@@ -202,7 +224,12 @@ export default function SignUp() {
                     <button type="submit" class="btn-primary">Sign Up & Start Reading! 🚀</button>
                 </form>
                 
-                <button class="google-btn" onClick={handleLogin}><GoogleOutlined style={{ fontSize: '26px', color: '#08c' }}/> Sign Up with Google</button>
+                <button class="google-btn" onClick={handleLogin}><Image
+                  src="/Google.png" // or a remote URL
+                  alt="Description"
+                  width={25}
+                  height={25}
+                /> Sign Up with Google</button>
                 
                 <div class="auth-links">
                     <p>Already have an account? <span onClick={() => handleSignIn()} class="auth-link" >Log In</span></p>

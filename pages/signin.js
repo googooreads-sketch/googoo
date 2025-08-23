@@ -4,7 +4,8 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 import { auth, provider } from "../lib/firebase";
 import { getPasswordStrength } from '@/utils/passwordStrength';
-import { GoogleOutlined  } from '@ant-design/icons';
+import Image from 'next/image';
+import { notification } from 'antd';
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
@@ -16,6 +17,14 @@ export default function SignIn() {
   const [message, setMessage] = useState();
     const [user, setUser] = useState(null);
   const router = useRouter();
+     const [api, contextHolder] = notification.useNotification();
+    const openNotificationWithIcon = type => {
+      api[type]({
+        message: 'Error',
+        description:
+          'Something went wrong. Please try again later.',
+      });
+    };
 
    const [passwordHide,setPasswordHide] = useState(true);
  
@@ -58,10 +67,10 @@ export default function SignIn() {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      if (!user.emailVerified) {
-        setMessage('Please verify your email before signing in.');
-        return;
-      }
+    //   if (!user.emailVerified) {
+    //     setMessage('Please verify your email before signing in.');
+    //     return;
+    //   }
 
       const idToken = await user.getIdToken();
 
@@ -77,6 +86,7 @@ export default function SignIn() {
     } catch (err) {
       console.error(err);
       setError(err.message);
+      openNotificationWithIcon('error');
     }
   };
 
@@ -98,6 +108,7 @@ export default function SignIn() {
         router.push('/dashboard')
       } catch (error) {
         console.error("Google Sign-In Error:", error);
+        openNotificationWithIcon('error');
       }
     };
 
@@ -128,7 +139,7 @@ export default function SignIn() {
 
   return (
         <div>
-
+{contextHolder}
        
     <header class="header">
         <nav class="nav-container">
@@ -167,7 +178,7 @@ export default function SignIn() {
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label" for="signupPassword">Create Password</label>
+                        <label class="form-label" for="signupPassword">Password</label>
                         <div class="password-container">
                       <input
           type={passwordHide ? "password": "text"}
@@ -189,7 +200,12 @@ export default function SignIn() {
                     <button type="submit" class="btn-primary">Sign In & Start Reading! 🚀</button>
                 </form>
                 
-                <button class="google-btn" onClick={handleLogin}><GoogleOutlined style={{ fontSize: '26px', color: '#08c' }}/> Sign In with Google</button>
+                <button class="google-btn" onClick={handleLogin}><Image
+  src="/Google.png" // or a remote URL
+  alt="Description"
+  width={25}
+  height={25}
+/> Sign In with Google</button>
                 
                 <div class="auth-links">
                     <p>Create an account? <span onClick={() => handleSignUp()} class="auth-link" >Sign Up</span></p>
