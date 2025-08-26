@@ -83,7 +83,7 @@ const handleClick = () => {
             
             <div class="recommendation-card fade-in">
                 <div class="recommendation-header">
-                    <h3 class="recommendation-title">📅 Today's Recommendation</h3>
+                    <h3 class="recommendation-title">📅 Today&apos;s Recommendation</h3>
                     <span class="recommendation-time">⏰ 15 min</span>
                 </div>
                 <div class="recommendation-content">
@@ -164,7 +164,7 @@ const handleClick = () => {
             <div class="character-assistant fade-in">
                 <div class="character-avatar" id="characterAvatar">🐻</div>
                 <div class="character-speech" id="characterSpeech">
-                    <p class="speech-text" id="speechText">Let's start learning! Click on any activity to begin your adventure!</p>
+                    <p class="speech-text" id="speechText">Let&apos;s start learning! Click on any activity to begin your adventure!</p>
                 </div>
                 <div class="character-actions">
                     <button class="character-btn" onclick="changeCharacterMood('excited')">🎉</button>
@@ -212,7 +212,7 @@ const handleClick = () => {
         <div class="footer-content">
             <div class="footer-section">
                 <h3>For Parents</h3>
-                <p>GooGooReads is designed with your child's safety and learning in mind. All content is age-appropriate and educational.</p>
+                <p>GooGooReads is designed with your child&apos;s safety and learning in mind. All content is age-appropriate and educational.</p>
                 <ul>
                     <li><a href="#">Safety & Privacy</a></li>
                     <li><a href="#">Learning Benefits</a></li>
@@ -221,7 +221,7 @@ const handleClick = () => {
             </div>
             <div class="footer-section">
                 <h3>Contact Us</h3>
-                <p>Have questions? We'd love to hear from you!</p>
+                <p>Have questions? We&apos;d love to hear from you!</p>
                 <ul>
                     <li><a href="mailto:hello@googooreads.com">hello@googooreads.com</a></li>
                     <li><a href="tel:+1234567890">📞 (123) 456-7890</a></li>
