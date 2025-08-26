@@ -1,5 +1,6 @@
 import "@/styles/Home.css";
 import "@/styles/sign.css";
+import "@/styles/dashboard.css";
 import * as gtag from '../lib/gtag';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';

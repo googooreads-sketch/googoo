@@ -163,9 +163,7 @@ export default function SignUp() {
             <button class="logout-btn" id="logoutBtn" onclick="logout()">Logout 👋</button>
         </nav>
     </header>
-      <Tooltip title="prompt text">
-    <span>Tooltip will show on mouse enter.</span>
-  </Tooltip>
+      
 
     
     <div class="page active" id="signupPage">
