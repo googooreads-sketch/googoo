@@ -39,9 +39,9 @@ const handleClick = () => {
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" onclick="showNotification('🎮 Loading fun games...', 'games')">
+                    <a href="#" class="nav-link" onclick="showNotification('🎮 Loading fun games...', 'blog')">
                         <span class="nav-icon">🎮</span>
-                        <span>Games</span>
+                        <span>Blog</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -223,8 +223,7 @@ const handleClick = () => {
                 <h3>Contact Us</h3>
                 <p>Have questions? We&apos;d love to hear from you!</p>
                 <ul>
-                    <li><a href="mailto:hello@googooreads.com">hello@googooreads.com</a></li>
-                    <li><a href="tel:+1234567890">📞 (123) 456-7890</a></li>
+                    <li><a href="mailto:googooreads@gmail.com">googooreads@gmail.com</a></li>
                     <li><a href="#">💬 Live Chat Support</a></li>
                 </ul>
             </div>
@@ -244,4 +243,5 @@ const handleClick = () => {
     </footer>
         </>
     )
+
 }
