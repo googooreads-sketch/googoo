@@ -21,7 +21,7 @@ export default function Home() {
                 <li class="nav-item"><a href="#home">Home</a></li>
                 <li class="nav-item"><a href="#story">Stories</a></li>
                 <li class="nav-item"><a href="#games">Blog</a></li>
-                <li class="nav-item"><a href="#profile">Profile</a></li>
+                
                 <li class="nav-item"><a href="#contact">Contact</a></li>
                 <li class="nav-item"><Button type="primary" onClick={()=> handleSignUp()}>Get Started</Button></li>
             </ul>
@@ -209,6 +209,7 @@ export default function Home() {
     </>
   );
 }
+
 
 
 
