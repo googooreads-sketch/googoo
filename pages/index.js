@@ -20,7 +20,6 @@ export default function Home() {
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#home">Home</a></li>
                 <li class="nav-item"><a href="#story">Stories</a></li>
-                <li class="nav-item"><a href="#bedtime">Bedtime</a></li>
                 <li class="nav-item"><a href="#games">Blog</a></li>
                 <li class="nav-item"><a href="#profile">Profile</a></li>
                 <li class="nav-item"><a href="#contact">Contact</a></li>
@@ -164,17 +163,7 @@ export default function Home() {
         </div>
     </section>
 
-   
-    <section class="bedtime-section" id="bedtime">
-        <div class="bedtime-content">
-            <div class="bedtime-illustration">🌙👨‍👩‍👧‍👦📖</div>
-            <div class="bedtime-text">
-                <h2>🌟 Bedtime Stories</h2>
-                <p>Cozy up with gentle tales perfect for bedtime. Parents can read along or let our calm narrator guide your little one to dreamland.</p>
-                <a href="#bedtime" class="bedtime-button">Explore Bedtime Stories 😴</a>
-            </div>
-        </div>
-    </section>
+
 
 
     <section class="progress-section" id="progress">
@@ -231,4 +220,5 @@ export default function Home() {
     </>
   );
 }
+
 
