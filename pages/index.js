@@ -151,17 +151,6 @@ export default function Home() {
         </div>
     </section>
 
-   
-    <section class="games-teaser" id="games">
-        <div class="games-content">
-            <div class="games-text">
-                <h2>🧩 Play & Learn Games</h2>
-                <p>Solve puzzles, play matching games, and win awesome badges! Every game helps you learn while having tons of fun.</p>
-                <a href="#games" class="games-button">Play Games & Win Stars ⭐</a>
-            </div>
-            <div class="puzzle-illustration">🧩</div>
-        </div>
-    </section>
 
 
 
@@ -206,7 +195,7 @@ export default function Home() {
                 <h3>Features</h3>
                 <ul>
                     <li><a href="#story">Interactive Stories</a></li>
-                    <li><a href="#games">Educational Games</a></li>
+               
                     <li><a href="#bedtime">Bedtime Stories</a></li>
                     <li><a href="#profile">Progress Tracking</a></li>
                 </ul>
@@ -220,5 +209,6 @@ export default function Home() {
     </>
   );
 }
+
 
 
