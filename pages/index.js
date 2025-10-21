@@ -21,7 +21,7 @@ export default function Home() {
                 <li class="nav-item"><a href="#home">Home</a></li>
                 <li class="nav-item"><a href="#story">Stories</a></li>
                 <li class="nav-item"><a href="#bedtime">Bedtime</a></li>
-                <li class="nav-item"><a href="#games">Games</a></li>
+                <li class="nav-item"><a href="#games">Blog</a></li>
                 <li class="nav-item"><a href="#profile">Profile</a></li>
                 <li class="nav-item"><a href="#contact">Contact</a></li>
                 <li class="nav-item"><Button type="primary" onClick={()=> handleSignUp()}>Get Started</Button></li>
@@ -209,8 +209,7 @@ export default function Home() {
                 <h3>Contact Us</h3>
                 <p>Have questions? We&#39;s love to hear from you!</p>
                 <ul>
-                    <li><a href="mailto:hello@googooreads.com">hello@googooreads.com</a></li>
-                    <li><a href="tel:+1234567890">📞 (123) 456-7890</a></li>
+                    <li><a href="mailto:googooreads@gmail.com">googooreads@gmail.com</a></li>
                     <li><a href="#">💬 Live Chat Support</a></li>
                 </ul>
             </div>
@@ -232,3 +231,4 @@ export default function Home() {
     </>
   );
 }
+
